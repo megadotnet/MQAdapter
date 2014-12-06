@@ -1,4 +1,4 @@
 MQAdapter
 =========
 
-Message Queue Adapter
+Message Queue Adapter for ActiveMQ dotnet client
