@@ -1,0 +1,4 @@
+MQAdapter
+=========
+
+Message Queue Adapter
