@@ -110,7 +110,9 @@
     <Compile Include="Helper\UtilTools.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
-    <Compile Include="PushMessageModel.cs" />
+    <Compile Include="Model\MsgSendType.cs" />
+    <Compile Include="Model\PushMessageModel.cs" />
+    <Compile Include="Model\PushMsg.cs" />
     <Compile Include="Tests\RuntimeStatTest.cs" />
     <Compile Include="Transfer\ConvertExt.cs" />
     <Compile Include="Transfer\ITypeAdapter.cs">

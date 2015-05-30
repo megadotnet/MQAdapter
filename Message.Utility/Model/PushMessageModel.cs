@@ -12,4 +12,7 @@ namespace BusniessEntities.Models
         public string MSG_TITLE { get; set; }
         public string MSG_CONTENT { get; set; }
     }
+
+
+
 }
