@@ -138,8 +138,8 @@ namespace Message.MQ.Model
             return new PushMessageModel()
             {
                 Id = 1,
-                MSG_CONTENT = "Test Message" + DateTime.Now,
-                MSG_TITLE="Test Tile"
+                MSGCONTENT = "Test Message" + DateTime.Now,
+                MSGTITLE="Test Tile"
             };
         }
       

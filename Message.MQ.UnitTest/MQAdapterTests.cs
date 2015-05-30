@@ -29,8 +29,8 @@
             // assume
             var adapter = new Mock<IMQAdapter<PushMessageModel>>();
             var messages = new List<PushMessageModel>(){
-               new PushMessageModel(){Id=1,  MSG_TITLE="title", MSG_CONTENT="content"}
-               ,new PushMessageModel(){Id=2, MSG_TITLE="title2", MSG_CONTENT="content2"}
+               new PushMessageModel(){Id=1,  MSGTITLE="title", MSGCONTENT="content"}
+               ,new PushMessageModel(){Id=2, MSGTITLE="title2", MSGCONTENT="content2"}
             };
             adapter.Setup(s => s.SendMessage<PushMessageModel>(It.IsAny<PushMessageModel>())).Returns(1);
             adapter.Setup(s => s.ReceviceMessage<PushMessageModel>())
