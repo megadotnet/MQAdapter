@@ -101,6 +101,13 @@
   <ItemGroup>
     <Compile Include="Config\MQConfig.cs" />
     <Compile Include="EntityFramewrok\LinqExtensionMethods.cs" />
+    <Compile Include="EntLib\Attribute\CachingCallHandlerAttribute.cs" />
+    <Compile Include="EntLib\Attribute\ExceptionLoggerAttribute.cs" />
+    <Compile Include="EntLib\Attribute\TransactionScopeCallHandlerAttribute.cs" />
+    <Compile Include="EntLib\Interceptor\CachingCallHandlerAttribute.cs" />
+    <Compile Include="EntLib\Interceptor\ExceptionLoggingBehavior.cs" />
+    <Compile Include="EntLib\Interceptor\LoggingInterceptor.cs" />
+    <Compile Include="EntLib\Interceptor\PerformanceInterceptor.cs" />
     <Compile Include="Helper\AopHelper.cs" />
     <Compile Include="Config\SectionHandler.cs" />
     <Compile Include="EntityFramewrok\PredicateBuilder.cs" />

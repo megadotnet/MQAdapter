@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Message.Utility.Helper
+﻿namespace Messag.Utility.Helper
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Sockets;
+    using System.Web;
+
     public class UtilTools
     {
         /// <summary>
@@ -24,6 +26,18 @@ namespace Message.Utility.Helper
 
 
         /// <summary>
+        /// Gets the current ip address.
+        /// </summary>
+        /// <value>
+        /// The current ip address.
+        /// </value>
+        public static string OwnIPAddress()
+        {
+            return Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString();
+        }
+
+
+        /// <summary>
         /// MergeSetsAndDoAction
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -31,6 +45,32 @@ namespace Message.Utility.Helper
         /// <param name="dbPrivilegeIDs">The database privilege i ds.</param>
         /// <param name="delAction">The delete action.</param>
         /// <param name="createAction">The create action.</param>
+        /// <example><code>
+        /// [Fact]
+        ///public void MergePrivilegeIdsTests()
+        ///{
+        ///    var dbPrivilegeIDs = new int[] { 23, 1, 2, 3, 5, 6 };
+        ///    var uIPrivilegeIDs = new int[] { 1, 2, 3, 5, 6 };
+        ///    UtilTools.MergeSetsAndDoAction<int>(uIPrivilegeIDs, dbPrivilegeIDs, delSets =>
+        ///    {
+        ///        delSets.ToList().ForEach(dd => Console.WriteLine("for delete {0}", dd));
+        ///    }
+        ///     , createSets =>
+        ///     {
+        ///         createSets.ToList().ForEach(dd => Console.WriteLine("for add {0}", dd));
+        ///     });
+        ///}
+        /// [Fact]
+        ///public void TestToWithSameList()
+        ///{
+        ///    var dbPrivilegeIDs = new int[] { 23, 1, 2, 3, 5, 6 };
+        ///    var uIPrivilegeIDs = new int[] { 23, 1, 2, 3, 5, 6 };
+        ///    var DifferencesList = dbPrivilegeIDs.Where(x => !uIPrivilegeIDs.Any(x1 => x1 == x))
+        ///                .Union(uIPrivilegeIDs.Where(x => !dbPrivilegeIDs.Any(x1 => x1 == x)));
+        ///    Assert.True(DifferencesList.Count() == 0);
+        ///}
+        ///}
+        /// </code></example>
         public static bool MergeSetsAndDoAction<T>(T[] uIPrivilegeIds, T[] dbPrivilegeIDs, Action<HashSet<T>> delAction, Action<HashSet<T>> createAction)
         {
             bool flag = false;
