@@ -5,8 +5,12 @@ namespace Megadotnet.Message.MQ.IAdapter
     /// <summary>
     /// The MQAdapter interface.
     /// </summary>
-    public interface IMQAdapter<T> where T:class
+    public interface IMQAdapter<T> where T : class
     {
+
+        string QUEUE_DESTINATION
+        { get; set; }
+
         /// <summary>
         /// The send message.
         /// </summary>
@@ -20,6 +24,15 @@ namespace Megadotnet.Message.MQ.IAdapter
         /// </returns>
         int SendMessage<T>(T t);
 
+
+        /// <summary>
+        /// Sends the messages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        int SendMessages<T>(T[] t);
+
         /// <summary>
         /// Sends the message.
         /// </summary>
@@ -29,6 +42,16 @@ namespace Megadotnet.Message.MQ.IAdapter
         /// <returns></returns>
         int SendMessage<T>(T t, string queueName);
 
+
+        /// <summary>
+        /// Sends the messages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t">The t.</param>
+        /// <param name="queueName">Name of the queue.</param>
+        /// <returns></returns>
+        int SendMessages<T>(T[] t, string queueName);
+
         /// <summary>
         /// The recevice message.
         /// </summary>
@@ -37,12 +60,12 @@ namespace Megadotnet.Message.MQ.IAdapter
         /// <returns>
         /// The <see cref="T[]"/>.
         /// </returns>
-        T[] ReceviceMessage<T>()  where T : class;
+        T[] ReceviceMessage<T>() where T : class;
 
         /// <summary>
         /// The recevice listener.
         /// </summary>
-        void ReceviceListener<T>()  where T : class;
+        void ReceviceListener<T>() where T : class;
 
         /// <summary>
         /// Occurs when [mq listener].
