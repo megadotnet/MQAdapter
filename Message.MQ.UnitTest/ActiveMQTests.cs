@@ -63,6 +63,33 @@ namespace Message.MQ.Model
 
         }
 
+
+        [Fact]
+        public void ShouldSendMessagesToMQ()
+        {
+            //assume
+            var activemq = new ActiveMQAdapter<PushMessageModel>(mq_Ip_address, QUEUE_DESTINATION);
+            var msg = CreateNewTestMessage();
+            var modellist = new PushMessageModel[] { msg, msg };
+            int flag = activemq.SendMessages<PushMessageModel>(modellist);
+
+            //assert
+            Assert.Equal(1, flag);
+        }
+
+
+        [Fact]
+        public void ShouldSendMessagesStringToMQ()
+        {
+            //assume
+            var activemq = new ActiveMQAdapter<string>(mq_Ip_address, QUEUE_DESTINATION);
+
+            var modellist = new string[] { "msg", "22" };
+            int flag = activemq.SendMessages<string>(modellist);
+
+            //assert
+            Assert.Equal(1, flag);
+        }
      
         #endregion
 
