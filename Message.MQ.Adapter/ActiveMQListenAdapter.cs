@@ -582,7 +582,29 @@ namespace Megadotnet.MessageMQ.Adapter
         #endregion
 
 
+        /// <summary>
+        /// Sends the messages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public override int SendMessages<T>(T[] t)
+        {
+            throw new NotImplementedException();
+        }
 
-
+        /// <summary>
+        /// Sends the messages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t">The t.</param>
+        /// <param name="queneName"></param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public override int SendMessages<T>(T[] t, string queneName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

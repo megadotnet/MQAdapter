@@ -18,22 +18,17 @@ namespace Megadotnet.MessageMQ.Adapter
     /// <summary>
     /// The active mq adapter. It is mainly use send message method
     /// </summary>
-    public class ActiveMQAdapter<T> : MQAdapterBase<T> where T:class
+    public class ActiveMQAdapter<T> : MQAdapterBase<T> where T : class
     {
         /// <summary>
         /// The log.
         /// </summary>
-        private static readonly ILogger log= new Logger("ActiveMQAdapter");
+        private static readonly ILogger log = new Logger("ActiveMQAdapter");
 
         /// <summary>
         /// The address.
         /// </summary>
         private string IpAddress;
-
-        /// <summary>
-        /// The queu e_ destination.
-        /// </summary>
-        public string QUEUE_DESTINATION;
 
 
         /// <summary>
@@ -54,7 +49,7 @@ namespace Megadotnet.MessageMQ.Adapter
         public ActiveMQAdapter()
         {
             this.IpAddress = "tcp://localhost:61616/";
-            QUEUE_DESTINATION = "PushMessageQueue";
+            QUEUE_DESTINATION = "MessageCenterQueue";
         }
 
         public override bool IsConnected { get; set; }
@@ -73,7 +68,7 @@ namespace Megadotnet.MessageMQ.Adapter
             this.IpAddress = _address;
             QUEUE_DESTINATION = queueDest;
         }
-        
+
         #endregion
 
         #region Member method
@@ -95,6 +90,17 @@ namespace Megadotnet.MessageMQ.Adapter
         }
 
         /// <summary>
+        /// Sends the messages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        public override int SendMessages<T>(T[] t)
+        {
+            return SendMessages<T>(t, QUEUE_DESTINATION);
+        }
+
+        /// <summary>
         /// Sends the message.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -103,6 +109,21 @@ namespace Megadotnet.MessageMQ.Adapter
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
         public override int SendMessage<T>(T t, string queneName)
+        {
+            int flag = 0;
+            TryCatchGeneralExceptionWrapper(() =>
+            {
+                this.CreateConnection(session =>
+                {
+                    ProductMessageProcess<T>(session, new T[] { t }, queneName);
+                    flag = 1;
+                }, senderID);
+
+            });
+            return flag;
+        }
+
+        public override int SendMessages<T>(T[] t, string queneName)
         {
             int flag = 0;
             TryCatchGeneralExceptionWrapper(() =>
@@ -142,9 +163,9 @@ namespace Megadotnet.MessageMQ.Adapter
             this.CreateConnection(
                 session =>
                 {
-                    this.ConsumeMessageByListener(session, OnMessageListener, needReleaseResource:false);
+                    this.ConsumeMessageByListener(session, OnMessageListener, needReleaseResource: false);
                 },
-                "listener", needReleaseConnection:false);
+                "listener", needReleaseConnection: false);
         }
 
         private void OnMessageListener(IMessage m)
@@ -162,7 +183,7 @@ namespace Megadotnet.MessageMQ.Adapter
         /// <summary>
         /// Occurs when [mq listener].
         /// </summary>
-        public override event MQMessageListener<T> MQListener; 
+        public override event MQMessageListener<T> MQListener;
         #endregion
 
         #region private helper method
@@ -187,47 +208,47 @@ namespace Megadotnet.MessageMQ.Adapter
         /// <param name="action">The action.</param>
         /// <param name="clientId">The client identifier.</param>
         /// <param name="needReleaseConnection">if set to <c>true</c> [need release connection].</param>
-        private void CreateConnection(Action<ISession> action, string clientId,bool needReleaseConnection)
+        private void CreateConnection(Action<ISession> action, string clientId, bool needReleaseConnection)
         {
             TryCatchGeneralExceptionWrapper(() =>
             {
-                   //1.连接工厂：用于创建连接
-                    IConnectionFactory factory = new ConnectionFactory(this.IpAddress);
-                    log.DebugFormat("ActiveMQ创建: {0}, 地址 {1}", factory.ToString(), this.IpAddress);
-                    if (needReleaseConnection)
+                //1.连接工厂：用于创建连接
+                IConnectionFactory factory = new ConnectionFactory(this.IpAddress);
+                log.DebugFormat("ActiveMQ创建: {0}, 地址 {1}", factory.ToString(), this.IpAddress);
+                if (needReleaseConnection)
+                {
+                    //2.JMS客户端到JMS Provider的连接
+                    using (IConnection connection = factory.CreateConnection())
                     {
-                        //2.JMS客户端到JMS Provider的连接
-                        using (IConnection connection = factory.CreateConnection())
+                        log.DebugFormat("ActiveMQ创建: {0}", connection.ToString());
+
+                        connection.ClientId = clientId;
+                        //建立连接
+                        connection.Start();
+
+                        if (connection.IsStarted)
+                            IsConnected = true;
+
+                        // Create the Session   3.线程：同时设置是否支持事务和acknowledge标识
+                        using (ISession session = connection.CreateSession())
                         {
-                            log.DebugFormat("ActiveMQ创建: {0}", connection.ToString());
-
-                            connection.ClientId = clientId;
-                            //建立连接
-                            connection.Start();
-
-                            if (connection.IsStarted)
-                                IsConnected = true;
-
-                            // Create the Session   3.线程：同时设置是否支持事务和acknowledge标识
-                            using (ISession session = connection.CreateSession())
-                            {
-                                action(session);
-                            }
-                           
-                            connection.Stop();
-
-                            log.Debug("ActiveMQ connect连接stop停止");
-
-                            connection.Close();
-
-                            log.Debug("ActiveMQ connect连接Close关闭");
+                            action(session);
                         }
+
+                        connection.Stop();
+
+                        log.Debug("ActiveMQ connect连接stop停止");
+
+                        connection.Close();
+
+                        log.Debug("ActiveMQ connect连接Close关闭");
                     }
-                    else
-                    {
-                        CreateConnectionForListener(action, clientId, factory);
-                    }
-               
+                }
+                else
+                {
+                    CreateConnectionForListener(action, clientId, factory);
+                }
+
             });
         }
 
@@ -306,12 +327,13 @@ namespace Megadotnet.MessageMQ.Adapter
         /// </param>
         /// <typeparam name="T">
         /// </typeparam>
-        private void ProductMessageProcess<T>(ISession session, T t, string queueName)
+        private void ProductMessageProcess<T>(ISession session, T[] t, string queueName)
         {
-            if (t is string)
+            if (t.GetType().ToString() == "System.String[]")
             {
-                SendText(session: session,text: t as string, topicName: QUEUE_DESTINATION);
+                SendTexts(session: session, texts: t as string[], topicName: QUEUE_DESTINATION);
             }
+            //send with objects
             else
             {
                 SendObject(session, t, queueName);
@@ -326,7 +348,7 @@ namespace Megadotnet.MessageMQ.Adapter
         /// <param name="session">The session.</param>
         /// <param name="t">The t.</param>
         /// <param name="queueName">Name of the queue.</param>
-        private static void SendObject<T>(ISession session, T t,string queueName)
+        private static void SendObject<T>(ISession session, T[] t, string queueName)
         {
             //4.消息的目的地：destination
             IDestination dest = session.GetQueue(queueName);
@@ -335,11 +357,16 @@ namespace Megadotnet.MessageMQ.Adapter
             //5.创建用于发送消息的对象(设置其持久模式)
             using (IMessageProducer producer = session.CreateProducer(dest))
             {
-                log.DebugFormat("ActiveMQ创建: {0}", producer.ToString());
-                var objectMessage = producer.CreateObjectMessage(t);
+                foreach (var msg in t)
+                {
+                    log.DebugFormat("ActiveMQ创建: {0}", producer.ToString());
+                    var objectMessage = producer.CreateObjectMessage(msg);
 
-                producer.Send(objectMessage);
-                log.DebugFormat("ActiveMQ已发送: {0}",objectMessage.ToString());
+                    producer.Send(objectMessage);
+                    log.DebugFormat("ActiveMQ已发送: {0}", msg);
+                }
+
+
             }
         }
 
@@ -354,20 +381,29 @@ namespace Megadotnet.MessageMQ.Adapter
         /// </param>
         /// <exception cref="ArgumentNullException">
         /// </exception>
-        private static void SendText(ISession session, string text,string topicName)
+        private static void SendTexts(ISession session, string[] texts, string topicName)
         {
-            if (string.IsNullOrEmpty(text))
+            if (texts == null && texts.Length <= 0)
             {
-                throw new ArgumentNullException("message text should be null");
+                throw new ArgumentNullException("message array text should be null");
             }
+
+            //if (string.IsNullOrEmpty(text))
+            //{
+            //    throw new ArgumentNullException("message text should be null");
+            //}
 
             // Create the Producer for the topic/queue   
             IMessageProducer prod = session.CreateProducer(new ActiveMQTopic(topicName));
 
-            ITextMessage msg = prod.CreateTextMessage();
-            msg.Text = text;
-            Console.WriteLine("Sending: " + text);
-            prod.Send(msg, MsgDeliveryMode.NonPersistent, MsgPriority.Normal, TimeSpan.MinValue);
+            foreach (var text in texts)
+            {
+                ITextMessage msg = prod.CreateTextMessage();
+                msg.Text = text;
+                Debug.WriteLine("Sending: " + text);
+                prod.Send(msg, MsgDeliveryMode.NonPersistent, MsgPriority.Normal, TimeSpan.MinValue);
+            }
+
         }
 
         /// <summary>
@@ -378,7 +414,7 @@ namespace Megadotnet.MessageMQ.Adapter
         /// </param>
         private void ConsumeMessageByListener(ISession session, MessageListener mylistener)
         {
-            ConsumeMessageByListener(session, mylistener,true);
+            ConsumeMessageByListener(session, mylistener, true);
         }
 
         /// <summary>
@@ -423,7 +459,7 @@ namespace Megadotnet.MessageMQ.Adapter
         /// <returns>
         /// The <see cref="T[]"/>.
         /// </returns>
-        private T[] ConsumeMessage<T>(ISession session) where T:class
+        private T[] ConsumeMessage<T>(ISession session) where T : class
         {
             T targetObject = default(T);
             IDestination dest = session.GetQueue(QUEUE_DESTINATION);
@@ -487,7 +523,7 @@ namespace Megadotnet.MessageMQ.Adapter
             {
                 log.Error(nmsConnectionExcepiton);
                 IsConnected = false;
-  
+
             }
             catch (Exception ex)
             {
@@ -495,7 +531,7 @@ namespace Megadotnet.MessageMQ.Adapter
                 IsConnected = false;
 
             }
-        } 
+        }
         #endregion
 
 
