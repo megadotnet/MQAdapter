@@ -8,8 +8,13 @@ namespace Megadotnet.Message.MQ.IAdapter
     public interface IMQAdapter<T> where T : class
     {
 
-        string QUEUE_DESTINATION
-        { get; set; }
+        /// <summary>
+        /// Gets or sets the queu e_ destination.
+        /// </summary>
+        /// <value>
+        /// The queu e_ destination.
+        /// </value>
+        string QUEUE_DESTINATION { get; set; }
 
         /// <summary>
         /// The send message.
