@@ -68,6 +68,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ActiveMQListenAdapterTests.cs" />
     <Compile Include="ActiveMQTests.cs" />
     <Compile Include="MQAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
