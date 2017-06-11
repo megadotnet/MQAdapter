@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>Megadotnet</authors>
+    <owners>Megadotnet</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/megadotnet/MQAdapter</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Message Queue Adapter for ActiveMQ dotnet client</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>wrapper ActiveMQ</tags>
+    <dependencies>
+      <dependency id="Apache.NMS.ActiveMQ" version="1.72" />
+    </dependencies>
+  </metadata>
+</package>
