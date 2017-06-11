@@ -1,4 +1,11 @@
-﻿
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MQAdapterBase.cs" company="Megadotnet">
+//   Copyright (c) 2010-2017 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//   The repository test.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 namespace Megadotnet.Message.MQ.IAdapter
 {
     /// <summary>
