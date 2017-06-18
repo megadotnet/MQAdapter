@@ -2,7 +2,7 @@ MQAdapter
 =========
 
 Message Queue Adapter for ActiveMQ dotnet client
-
+AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/r3af7vruiridp7xn/branch/master?svg=true)](https://ci.appveyor.com/project/megadotnet/mqadapter/branch/master)
 
 ## License
 Copyright (c) 2012-2015 Megadotnet Contributors
