@@ -33,6 +33,7 @@
                ,new PushMessageModel(){Id=2, MSGTITLE="title2", MSGCONTENT="content2"}
             };
             adapter.Setup(s => s.SendMessage<PushMessageModel>(It.IsAny<PushMessageModel>())).Returns(1);
+            adapter.Setup(s => s.SendMessage<string>(It.IsAny<string>())).Returns(1);
             adapter.Setup(s => s.ReceviceMessage<PushMessageModel>())
                 .Returns(messages.ToArray());
 

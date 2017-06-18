@@ -1,12 +1,4 @@
-﻿using BusniessEntities.Models;
-using Messag.Utility.Config;
-using Megadotnet.MessageMQ.Adapter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using Xunit;
+﻿using Xunit;
 
 namespace Megadotnet.Message.MQ.UnitTest
 {
@@ -18,7 +10,7 @@ namespace Megadotnet.Message.MQ.UnitTest
         /// <summary>
         /// Shoulds the send message for model to mq.
         /// </summary>
-        [Fact]
+        //[Fact]
         public void ShouldSendMessageForModelToMQ()
         {
 
