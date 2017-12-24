@@ -11,7 +11,7 @@ namespace Megadotnet.Message.MQ.IAdapter
     /// <summary>
     /// The mq adapter base.
     /// </summary>
-    public abstract class MQAdapterBase<T> : IMQAdapter<T> where T:class
+    public abstract class MQAdapterBase<TEntiy> : IMQAdapter<TEntiy> where TEntiy:class
     {
         /// <summary>
         /// Gets or sets the queu e_ destination.
@@ -73,7 +73,7 @@ namespace Megadotnet.Message.MQ.IAdapter
         /// <typeparam name="T">
         /// </typeparam>
         /// <returns>
-        /// The <see cref="T[]"/>.
+        /// The <see cref="TEntiy[]"/>.
         /// </returns>
         public abstract T[] ReceviceMessage<T>() where T : class;
 
@@ -86,7 +86,7 @@ namespace Megadotnet.Message.MQ.IAdapter
         /// <summary>
         /// Occurs when [mq listener].
         /// </summary>
-        public abstract event MQMessageListener<T> MQListener;
+        public abstract event MQMessageListener<TEntiy> MQListener;
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is connected.

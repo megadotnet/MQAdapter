@@ -3,6 +3,10 @@ MQAdapter
 
 Message Queue Adapter for ActiveMQ dotnet client
 
+## Environment
+.Net Framework 4.5 or later
+
+.Net Core 2.0 or later
 
 AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/r3af7vruiridp7xn/branch/master?svg=true)](https://ci.appveyor.com/project/megadotnet/mqadapter/branch/master)
 

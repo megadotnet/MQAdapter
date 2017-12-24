@@ -25,16 +25,19 @@ namespace Messag.Utility.Transfer
     }
 
     /// <summary>
-    /// TypeAdapter
+    /// AutoMapperTypeAdapter
     /// </summary>
     /// <typeparam name="S">Source</typeparam>
     /// <typeparam name="T">Target</typeparam>
-    public class TypeAdapter : ITypeAdapter
+    /// <see cref="https://lostechies.com/jimmybogard/2016/01/21/removing-the-static-api-from-automapper/"/>
+    public class AutoMapperTypeAdapter : ITypeAdapter
     {
+        private MapperConfiguration mapperConfiguration;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TypeAdapter&lt;S, T&gt;"/> class.
         /// </summary>
-        public TypeAdapter()
+        public AutoMapperTypeAdapter()
         {
             //We do not need complete mapping between entity and DTO
             //Mapper.AssertConfigurationIsValid();
@@ -80,7 +83,8 @@ namespace Messag.Utility.Transfer
         /// <returns></returns>
         protected virtual T GetTarget<S, T>(S source)
         {
-            return Mapper.Map<S, T>(source);
+            IMapper mapper = mapperConfiguration.CreateMapper();
+            return mapper.Map<S, T>(source);
         }
 
         /// <summary>
@@ -93,7 +97,8 @@ namespace Messag.Utility.Transfer
         /// <returns></returns>
         protected virtual T GetTarget<S, T>(S source, T dest)
         {
-            return Mapper.Map<S, T>(source, dest);
+            IMapper mapper = mapperConfiguration.CreateMapper();
+            return mapper.Map<S, T>(source, dest);
         }
 
         /// <summary>
@@ -103,7 +108,9 @@ namespace Messag.Utility.Transfer
         /// <typeparam name="T"></typeparam>
         protected virtual void CreateMap<S, T>()
         {
-            Mapper.CreateMap<S, T>();
+            mapperConfiguration = new MapperConfiguration(cfg => {
+                cfg.CreateMap<S, T>();
+            });
         }
 
     }
