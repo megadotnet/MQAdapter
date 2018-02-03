@@ -29,7 +29,7 @@ namespace Message.MQ.Model
         /// <summary>
         /// Shoulds the send message for  model to MQ
         /// </summary>
-        //[Fact]
+        [Fact]
         public void ShouldSendMessageForModelToMQ()
         {
             //assume
