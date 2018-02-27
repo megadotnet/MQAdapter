@@ -10,6 +10,13 @@ Message Queue Adapter for ActiveMQ dotnet client
 
 AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/r3af7vruiridp7xn/branch/master?svg=true)](https://ci.appveyor.com/project/megadotnet/mqadapter/branch/master)
 
+## Latest Builds
+
+Channel  | Core Framework 
+-------- | :------------: 
+NuGet | <a href="https://www.nuget.org/packages/Megadotnet.MessageMQ.Adapter"><img src="https://img.shields.io/nuget/v/Megadotnet.MessageMQ.Adapter.svg?style=flat"></a>
+
+
 ## Features
 - Retry logic
 - Simple API 
