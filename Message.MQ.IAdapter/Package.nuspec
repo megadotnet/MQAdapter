@@ -12,9 +12,6 @@
     <description>$description$</description>
     <releaseNotes>Message Queue Adapter for ActiveMQ dotnet client</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>wrapper ActiveMQ</tags>
-    <dependencies>
-      <dependency id="Apache.NMS.ActiveMQ" version="1.72" />
-    </dependencies>
+    <tags>Wrapper ActiveMQ dot net client API</tags>
   </metadata>
 </package>

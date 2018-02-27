@@ -1,0 +1,1 @@
+..\.nuget\nuget pack Megadotnet.MessageMQ.IAdapter.csproj
