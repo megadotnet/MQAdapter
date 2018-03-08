@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MQConfig.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  MQConfig
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace Messag.Utility.Config
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     /// <summary>
-    /// Config
+    /// MQ Configuraion setions class
     /// </summary>
     /// <example>
     /// <code>
@@ -110,6 +118,34 @@ namespace Messag.Utility.Config
             {
                 var myvalue = configSection["interval"];
                 return Convert.ToInt32(myvalue);
+            }
+        }
+
+        /// <summary>
+        /// Gets the name of the user for MQ connection
+        /// </summary>
+        /// <value>
+        /// The name of the user.
+        /// </value>
+        public static string UserName
+        {
+            get
+            {
+                return configSection["username"];
+            }
+        }
+
+        /// <summary>
+        /// Gets the password  for MQ connection
+        /// </summary>
+        /// <value>
+        /// The password.
+        /// </value>
+        public static string Password
+        {
+            get
+            {
+                return configSection["password"];
             }
         }
     }
