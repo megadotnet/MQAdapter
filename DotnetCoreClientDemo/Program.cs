@@ -1,5 +1,6 @@
 ﻿using BusniessEntities.Models;
 using Megadotnet.MessageMQ.Adapter;
+using Megadotnet.MessageMQ.Adapter.Config;
 using Messag.Utility.Config;
 using System;
 
@@ -10,11 +11,11 @@ namespace DotnetCoreClientDemo
         /// <summary>
         /// The MQ_ ip_address
         /// </summary>
-        private static string mq_Ip_address = MQConfig.MQIpAddress;
+        private static string mq_Ip_address = MyMQConfig.MQIpAddress;
         /// <summary>
         /// The queu e_ destination
         /// </summary>
-        private static string QUEUE_DESTINATION = MQConfig.QueueDestination;
+        private static string QUEUE_DESTINATION = MyMQConfig.QueueDestination;
 
         /// <summary>
         /// Main
@@ -22,7 +23,7 @@ namespace DotnetCoreClientDemo
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Begin Connect " + typeof(MQConfig).Name);
+            Console.WriteLine("Begin Connect " + typeof(MyMQConfig).Name);
          
 
             var activemq = new ActiveMQAdapter<PushMessageModel>(mq_Ip_address, QUEUE_DESTINATION);
