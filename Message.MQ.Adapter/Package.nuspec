@@ -14,7 +14,7 @@
     <copyright>Copyright 2018</copyright>
     <tags>wrapper ActiveMQ</tags>
     <dependencies>
-      <dependency id="Apache.NMS.ActiveMQ" version="1.7.1" />
+      <dependency id="Apache.NMS.ActiveMQ" version="1.7.2" />
     </dependencies>
   </metadata>
 </package>

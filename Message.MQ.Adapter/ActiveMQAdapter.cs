@@ -11,9 +11,8 @@ namespace Megadotnet.MessageMQ.Adapter
     using Apache.NMS.ActiveMQ.Commands;
     using Megadotnet.Message.MQ.IAdapter;
     using System.Diagnostics;
-    using Messag.Utility.Exception;
-    using Messag.Logger;
     using System.Collections.Concurrent;
+    using IronFramework.Common.Logging.Logger;
 
     /// <summary>
     /// The active mq adapter. It is mainly use send message method

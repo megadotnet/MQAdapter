@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using Xunit;
 
-namespace Message.MQ.Model
+namespace Message.MQ.Adapter.UnitTests
 {
     /// <summary>
     /// ActiveMQ Instance Tests, it need to deploy ActiveMQInstance
@@ -28,8 +28,9 @@ namespace Message.MQ.Model
         #region 发送消息到MQ
         /// <summary>
         /// Shoulds the send message for  model to MQ
+        /// You need run ActiveMQ before
         /// </summary>
-        [Fact]
+        //[Fact]
         public void ShouldSendMessageForModelToMQ()
         {
             //assume

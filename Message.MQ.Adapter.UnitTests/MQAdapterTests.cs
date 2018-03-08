@@ -1,4 +1,4 @@
-﻿namespace Message.MQ.Model
+﻿namespace Message.MQ.Adapter.UnitTests
 {
     using System.Collections.Generic;
 

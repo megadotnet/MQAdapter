@@ -22,7 +22,8 @@ namespace DotnetCoreClientDemo
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Begin Connect");
+            Console.WriteLine("Begin Connect " + typeof(MQConfig).Name);
+         
 
             var activemq = new ActiveMQAdapter<PushMessageModel>(mq_Ip_address, QUEUE_DESTINATION);
             var msg = CreateNewTestMessage();

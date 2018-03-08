@@ -19,11 +19,10 @@ namespace Megadotnet.MessageMQ.Adapter
     using Apache.NMS.ActiveMQ.Commands;
     using Megadotnet.Message.MQ.IAdapter;
     using System.Diagnostics;
-    using Messag.Utility.Exception;
-    using Messag.Logger;
     using System.Collections.Concurrent;
     using System.Threading;
-    using Messag.Utility.Config;
+    using Megadotnet.MessageMQ.Adapter.Config;
+    using IronFramework.Common.Logging.Logger;
 
 
     /// <summary>
@@ -288,7 +287,7 @@ namespace Megadotnet.MessageMQ.Adapter
                         log.DebugFormat("Current MQ connection status: {0}", IsConnected);
                         log.DebugFormat("准备第{0}次重新CreateConnection()", retryCount);
                         retryCount++;
-                        Thread.Sleep(MQConfig.Interval);
+                        Thread.Sleep(MyMQConfig.Interval);
                         fromRetryflag = true;
                         //递归
                         connection= CreateConnectionForListener(clientId, factory);
