@@ -46,9 +46,11 @@
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="IronFramework.Common.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\IronFramework.Common.Config.1.0.0\lib\net45\IronFramework.Common.Config.dll</HintPath>
     </Reference>
     <Reference Include="IronFramework.Common.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\IronFramework.Common.Logging.1.0.0\lib\net45\IronFramework.Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -68,16 +70,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Message.MQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj">
-      <Project>{7c47153c-0ee3-4f55-9a99-4e7bea590cd1}</Project>
-      <Name>Megadotnet.MessageMQ.IAdapter</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Package.nuspec" />
     <None Include="PackageNuget.bat" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj">
+      <Project>{be6445d6-8ab6-443e-a2c1-10988879a77e}</Project>
+      <Name>Megadotnet.MessageMQ.IAdapter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

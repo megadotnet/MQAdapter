@@ -1,5 +1,4 @@
 ﻿using BusniessEntities.Models;
-using Messag.Utility.Config;
 using Megadotnet.MessageMQ.Adapter;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Xunit;
+using Megadotnet.MessageMQ.Adapter.Config;
 
 namespace Message.MQ.Adapter.UnitTests
 {
@@ -19,11 +19,11 @@ namespace Message.MQ.Adapter.UnitTests
         /// <summary>
         /// The MQ_ ip_address
         /// </summary>
-        private static string mq_Ip_address = MQConfig.MQIpAddress;
+        private static string mq_Ip_address = MyMQConfig.MQIpAddress;
         /// <summary>
         /// The queu e_ destination
         /// </summary>
-        private static string QUEUE_DESTINATION = MQConfig.QueueDestination;
+        private static string QUEUE_DESTINATION = MyMQConfig.QueueDestination;
 
         #region 发送消息到MQ
         /// <summary>

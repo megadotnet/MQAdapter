@@ -113,17 +113,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj">
+      <Project>{be6445d6-8ab6-443e-a2c1-10988879a77e}</Project>
+      <Name>Megadotnet.MessageMQ.IAdapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Message.MQ.Adapter\Megadotnet.MessageMQ.Adapter.csproj">
       <Project>{9f27d8ef-6daf-415c-b5d4-fa00472a1b35}</Project>
       <Name>Megadotnet.MessageMQ.Adapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Message.MQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj">
-      <Project>{7c47153c-0ee3-4f55-9a99-4e7bea590cd1}</Project>
-      <Name>Megadotnet.MessageMQ.IAdapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Message.Utility\Megadotnet.Message.Utility.csproj">
-      <Project>{70a400b0-6fe0-4007-af35-e99835f39922}</Project>
-      <Name>Megadotnet.Message.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

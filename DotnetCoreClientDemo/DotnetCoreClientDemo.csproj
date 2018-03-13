@@ -13,9 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj" />
     <ProjectReference Include="..\Message.MQ.Adapter\Megadotnet.MessageMQ.Adapter.csproj" />
-    <ProjectReference Include="..\Message.MQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj" />
-    <ProjectReference Include="..\Message.Utility\Megadotnet.Message.Utility.csproj" />
   </ItemGroup>
 
 </Project>

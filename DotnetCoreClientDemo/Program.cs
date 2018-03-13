@@ -1,7 +1,6 @@
 ﻿using BusniessEntities.Models;
 using Megadotnet.MessageMQ.Adapter;
 using Megadotnet.MessageMQ.Adapter.Config;
-using Messag.Utility.Config;
 using System;
 
 namespace DotnetCoreClientDemo
