@@ -4,9 +4,11 @@ MQAdapter
 Message Queue Adapter for ActiveMQ dotnet client
 
 ## Environment
-.Net Framework 4.5 or later
+.Net Framework 4.6.1 or later
 
 .Net Core 2.0 or later
+
+.Net Standard 2.0 
 
 AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/r3af7vruiridp7xn/branch/master?svg=true)](https://ci.appveyor.com/project/megadotnet/mqadapter/branch/master)
 
@@ -21,8 +23,24 @@ NuGet | <a href="https://www.nuget.org/packages/Megadotnet.MessageMQ.Adapter"><i
 - Retry logic
 - Simple API 
 
+## Deployment
+ For .nNet Core
+  1. Install CentOS 7 or later version.
+  2. Install .NET Core on CentOS 7 now using the following steps:
+
+    yum install centos-release-dotnet 
+    yum install rh-dotnet20
+    
+  To use it:
+
+    scl enable rh-dotnet20 bash
+    dotnet --info
+  3. Push files to folder then FTP to target folder. Run with following stetps: 
+    
+    dotnet DotnetCoreClientDemo.dll
+
 ## License
-Copyright (c) 2012-2015 Megadotnet Contributors
+Copyright (c) 2012-2018 Megadotnet Contributors
 
 Other software included in this distribution is owned and
 licensed separately, see the included license files for details.
