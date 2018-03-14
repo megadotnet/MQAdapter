@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <Version>1.0.0.0</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Megadotnet.MessageMQ.Adapter.NetCore</Description>
+    <Copyright>Megadotnet</Copyright>
+    <PackageProjectUrl>https://github.com/megadotnet/MQAdapter</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

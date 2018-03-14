@@ -2,9 +2,8 @@
 
 namespace DotnetCoreClientDemo
 {
-    class Program
+    public class Program
     {
-
 
         /// <summary>
         /// Main

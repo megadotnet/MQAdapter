@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Megadotnet.MessageMQ.IAdapt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megadotnet.MessageMQ.Adapter.NetCore", "Megadotnet.MessageMQ.Adapter.NetCore\Megadotnet.MessageMQ.Adapter.NetCore.csproj", "{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NetCore", ".NetCore", "{84AA81AD-7AFA-412D-8EC1-30C3F805B692}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D923D96D-84EB-4714-A3E2-298CAC83B129} = {84AA81AD-7AFA-412D-8EC1-30C3F805B692}
+		{945BA636-27DE-44D5-9AE8-116AA8D1BEA3} = {84AA81AD-7AFA-412D-8EC1-30C3F805B692}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BC19FC2-05B3-4639-BEC8-71EF124A54D2}
