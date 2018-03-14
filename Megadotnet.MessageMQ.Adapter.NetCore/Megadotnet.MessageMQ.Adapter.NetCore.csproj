@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ.NetCore" Version="1.7.2" />
+    <PackageReference Include="IronFramework.Common.Config.Standard" Version="1.0.0" />
+    <PackageReference Include="IronFramework.Common.Logging.Standard" Version="1.0.0" />
+    <PackageReference Include="Megadotnet.MessageMQ.IAdapter" Version="1.0.0.3" />
+  </ItemGroup>
+
+</Project>

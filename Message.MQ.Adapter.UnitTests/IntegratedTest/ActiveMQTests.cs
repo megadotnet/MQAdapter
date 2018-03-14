@@ -30,7 +30,7 @@ namespace Message.MQ.Adapter.UnitTests
         /// Shoulds the send message for  model to MQ
         /// You need run ActiveMQ before
         /// </summary>
-        //[Fact]
+        [Fact]
         public void ShouldSendMessageForModelToMQ()
         {
             //assume

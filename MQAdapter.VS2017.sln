@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCoreClientDemo", "Dot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megadotnet.Message.MQ.Adapter.UnitTests", "Message.MQ.Adapter.UnitTests\Megadotnet.Message.MQ.Adapter.UnitTests.csproj", "{01A89856-9A50-4B95-8B21-0BB1D749644A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megadotnet.MessageMQ.IAdapter", "Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj", "{BE6445D6-8AB6-443E-A2C1-10988879A77E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Megadotnet.MessageMQ.IAdapter", "Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj", "{BE6445D6-8AB6-443E-A2C1-10988879A77E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megadotnet.MessageMQ.Adapter.NetCore", "Megadotnet.MessageMQ.Adapter.NetCore\Megadotnet.MessageMQ.Adapter.NetCore.csproj", "{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{BE6445D6-8AB6-443E-A2C1-10988879A77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE6445D6-8AB6-443E-A2C1-10988879A77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE6445D6-8AB6-443E-A2C1-10988879A77E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{945BA636-27DE-44D5-9AE8-116AA8D1BEA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

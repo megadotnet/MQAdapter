@@ -7,14 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Apache.NMS.ActiveMQ.NetCore" Version="1.7.2" />
-    <PackageReference Include="Common.Logging.NLog40" Version="3.4.1" />
-    <PackageReference Include="IronFramework.Common.Config" Version="1.0.0" />
+    <PackageReference Include="IronFramework.Common.Config.Standard" Version="1.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Megadotnet.MessageMQ.Adapter.NetCore\Megadotnet.MessageMQ.Adapter.NetCore.csproj" />
     <ProjectReference Include="..\Megadotnet.MessageMQ.IAdapter\Megadotnet.MessageMQ.IAdapter.csproj" />
-    <ProjectReference Include="..\Message.MQ.Adapter\Megadotnet.MessageMQ.Adapter.csproj" />
   </ItemGroup>
 
 </Project>

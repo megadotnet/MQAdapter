@@ -16,7 +16,7 @@ namespace Message.MQ.Adapter.UnitTests.Config
     /// <code>
     /// <![CDATA[
     ///   <configSections>
-    ///         <section name = "MyMQConfig" type="IronFramework.Common.Config.SectionHandler`1[[Megadotnet.MessageMQ.Adapter.Config.MyMQConfig, Megadotnet.MessageMQ.Adapter]],IronFramework.Common.Config"/>
+    ///         <section name = "MyMQConfig" type="IronFramework.Common.Config.SectionHandler`1[[Megadotnet.MessageMQ.Adapter.Config.MyMQConfig, Megadotnet.MessageMQ.Adapter]],IronFramework.Common.Config.Standard"/>
     ///      </configSections>
     ///    <MyMQConfig>
     ///       <mqidaddress>tcp://127.0.0.1:61616/</mqidaddress>
