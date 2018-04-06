@@ -69,6 +69,8 @@
     <Compile Include="ActiveMQListenAdapter.cs" />
     <Compile Include="ActiveMQAdapter.cs" />
     <Compile Include="Config\MQConfig.cs" />
+    <Compile Include="Managner\MQMessageManager.cs" />
+    <Compile Include="Managner\MQMessageManagerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

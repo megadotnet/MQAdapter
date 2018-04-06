@@ -1,4 +1,11 @@
-﻿
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ActiveMQAdapter.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  ActiveMQAdapter
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 
 namespace Megadotnet.MessageMQ.Adapter
 {

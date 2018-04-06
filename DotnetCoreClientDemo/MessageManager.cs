@@ -2,6 +2,7 @@
 namespace DotnetCoreClientDemo
 {
     using BusniessEntities.Models;
+    using Megadotnet.Message.MQ.IAdapter;
     using Megadotnet.MessageMQ.Adapter;
     using Megadotnet.MessageMQ.Adapter.NetCore;
     using System;
@@ -18,9 +19,13 @@ namespace DotnetCoreClientDemo
         /// </summary>
         private static string QUEUE_DESTINATION = MyMQConfig.QueueDestination;
 
+        /// <summary>
+        /// Sends the one message.
+        /// </summary>
+        /// <returns></returns>
         public bool SendOneMessage()
         {
-            var activemq = new ActiveMQAdapter<PushMessageModel>(mq_Ip_address, QUEUE_DESTINATION);
+            IMQAdapter<PushMessageModel> activemq = new ActiveMQAdapter<PushMessageModel>(mq_Ip_address, QUEUE_DESTINATION);
             var msg = CreateNewTestMessage();
 
             int flag = activemq.SendMessage<PushMessageModel>(msg);

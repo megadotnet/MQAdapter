@@ -1,5 +1,11 @@
-﻿
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MyMQConfig.cs" company="Megadotnet">
+// Copyright (c) 2010-2018 Petter Liu.  All rights reserved. 
+// </copyright>
+// <summary>
+//  MyMQConfig
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------	
 namespace Megadotnet.MessageMQ.Adapter.NetCore
 {
     using IronFramework.Common.Config;

@@ -2,6 +2,9 @@
 
 namespace DotnetCoreClientDemo
 {
+    /// <summary>
+    /// Program
+    /// </summary>
     public class Program
     {
 
@@ -17,7 +20,7 @@ namespace DotnetCoreClientDemo
 
             if (messageManager.SendOneMessage())
             {
-                Console.WriteLine("Done,press Any Key will be close");
+                Console.WriteLine("Done, press Any Key will be close");
             }
             else
             {
