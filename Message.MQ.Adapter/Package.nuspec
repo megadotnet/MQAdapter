@@ -14,10 +14,8 @@
     <copyright>Copyright 2018</copyright>
     <tags>wrapper ActiveMQ</tags>
     <dependencies>
-      <dependency id="Megadotnet.MessageMQ.IAdapter" version="1.0.0.2" />
+      <dependency id="Megadotnet.MessageMQ.IAdapter" version="1.0.0.3" />
       <dependency id="Apache.NMS.ActiveMQ" version="1.7.2" />
-      <dependency id="IronFramework.Common.Config" version="1.0.0" />
-      <dependency id="IronFramework.Common.Logging" version="1.0.0" />
     </dependencies>
   </metadata>
 </package>
