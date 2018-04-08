@@ -53,8 +53,8 @@
     <Reference Include="IronFramework.Common.Logging.Standard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IronFramework.Common.Logging.Standard.1.0.0\lib\netstandard2.0\IronFramework.Common.Logging.Standard.dll</HintPath>
     </Reference>
-    <Reference Include="Megadotnet.MessageMQ.Adapter, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Megadotnet.MessageMQ.Adapter.1.0.0.5\lib\net461\Megadotnet.MessageMQ.Adapter.dll</HintPath>
+    <Reference Include="Megadotnet.MessageMQ.Adapter, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Megadotnet.MessageMQ.Adapter.1.0.0.6\lib\net461\Megadotnet.MessageMQ.Adapter.dll</HintPath>
     </Reference>
     <Reference Include="Megadotnet.MessageMQ.IAdapter, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Megadotnet.MessageMQ.IAdapter.1.0.0.3\lib\netstandard2.0\Megadotnet.MessageMQ.IAdapter.dll</HintPath>
