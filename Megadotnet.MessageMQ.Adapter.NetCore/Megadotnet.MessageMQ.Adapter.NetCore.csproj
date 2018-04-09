@@ -7,6 +7,9 @@
     <Description>Megadotnet.MessageMQ.Adapter.NetCore</Description>
     <Copyright>Megadotnet</Copyright>
     <PackageProjectUrl>https://github.com/megadotnet/MQAdapter</PackageProjectUrl>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <PackageReleaseNotes>.net core 2.0 version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
