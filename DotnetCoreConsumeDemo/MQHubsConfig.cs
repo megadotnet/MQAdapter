@@ -11,6 +11,9 @@ namespace DotnetCoreConsumeDemo
     /// </summary>
     public class MQHubsConfig
     {
+        /// <summary>
+        /// The logger
+        /// </summary>
         private static readonly ILogger logger = new Logger("MQHubsConfig");
 
         /// <summary>
