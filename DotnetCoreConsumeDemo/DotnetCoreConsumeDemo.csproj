@@ -7,9 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="IronFramework.Common.Logging.NLog.Standard" Version="1.0.0" />
-    <PackageReference Include="IronFramework.Common.Logging.Standard" Version="1.0.0" />
     <PackageReference Include="Megadotnet.MessageMQ.Adapter.NetCore" Version="1.0.0.1" />
-    <PackageReference Include="NLog" Version="4.5.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
   </ItemGroup>
 
   <ItemGroup>
